@@ -9,4 +9,11 @@ public class CurrentWeatherRepository {
     public String getCurrentWeather() {
         return "none";
     }
+
+    public String getCountry(String cityName) {
+        return "none";
+    }
+
+
+
 }

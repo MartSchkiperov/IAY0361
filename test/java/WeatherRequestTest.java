@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 public class WeatherRequestTest extends WeatherRequest {
 
+    WeatherRequest w = new WeatherRequest("Tallinn");
+
     @Test
     public void testIfWeatherRepositoryRespCityEqualsReqCity() { // ← Testi nimi ütleb mida testid!
         /*
@@ -21,4 +23,10 @@ public class WeatherRequestTest extends WeatherRequest {
         }
         */
     }
+
+    @Test
+    public void testIfCityCountryIsCorrect() throws Exception {
+        assertEquals("Estonia", w.getCountryName());
+    }
+
 }

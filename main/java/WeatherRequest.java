@@ -11,5 +11,10 @@ public class WeatherRequest {
 
     }
 
+    public String getCountryName() {
+        return "none";
+    }
+
+
 
 }
