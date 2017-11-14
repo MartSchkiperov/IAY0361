@@ -13,9 +13,9 @@ public class WeatherRequestTest extends WeatherRequest {
             // given
             /// WeatherRequest request = new WeatherRequest("Tallinn", EE, metric);
             WeatherRequest request = new WeatherRequest("Tallinn");
-            CurrentWeatherRepository repository = new CurrentWeatherRepository();
+            currentweather.CurrentWeatherRepository repository = new currentweather.CurrentWeatherRepository();
             // when
-            CurrentWeatherReport report = repository.getCurrentWeather(request);
+            currentweather.CurrentWeatherReport report = repository.getCurrentWeather(request);
             // then (no null check!)
             assertEquals(report.cityName, request.cityName);
         } catch (Exception e){

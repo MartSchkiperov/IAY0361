@@ -1,3 +1,4 @@
+import currentweather.CurrentWeatherReport;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -7,7 +8,7 @@ import static org.junit.Assert.*;
  */
 public class CurrentWeatherReportTest extends CurrentWeatherReport {
 
-    CurrentWeatherReport w = new CurrentWeatherReport("Tallinn");
+    CurrentWeatherReport w = new CurrentWeatherReport();
 
     @Test
     public void maximumTemperatureIsSmallerThan50DegreeCelsius() throws Exception {
