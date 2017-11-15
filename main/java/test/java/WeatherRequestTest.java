@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
 public class WeatherRequestTest extends WeatherRequest {
@@ -28,5 +30,12 @@ public class WeatherRequestTest extends WeatherRequest {
     public void testIfCityCountryIsCorrect() throws Exception {
         assertEquals("Estonia", w.getCountryName());
     }
+
+
+    @Test
+    public void tallinnIsTallinn() throws IOException {
+        assertEquals("Tallinn", w.cityFromFile());
+    }
+
 
 }

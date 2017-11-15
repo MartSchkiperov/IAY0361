@@ -42,12 +42,13 @@ public class CurrentWeatherReportTest extends CurrentWeatherReport {
 
     @Test
     public void currentTemperatureIsNotTooCold() throws Exception {
-        assertTrue(w.currentWeatherReport() > -50);
+        assertTrue(w.currentWeatherReportTemperature("Tallinn") > -50);
     }
 
     @Test
     public void currentTemperatureIsNotTooHot() throws Exception {
-        assertTrue(w.currentWeatherReport() < 50);
+        assertTrue(w.currentWeatherReportTemperature("Tallinn") < 50);
     }
+
 
 }
