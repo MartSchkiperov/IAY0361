@@ -4,13 +4,12 @@ public class Weather {
 
 
     public static void main(String[] args) throws Exception {
-        WeatherRequest wR = new WeatherRequest();
+        WeatherRequest weatherRequest = new WeatherRequest();
 
-        //wR.manyCitiesWeatherInformation();
+        //weatherRequest.manyCitiesWeatherInformation();
 
-        //wR.oneCityWeatherInformation();
+        //weatherRequest.oneCityWeatherInformation();
 
-        wR.weatherInfoFromDisk();
-
+        //weatherRequest.weatherInfoFromDisk();
     }
 }

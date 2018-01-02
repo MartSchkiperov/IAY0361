@@ -1,38 +1,73 @@
 import forecast.Forecast;
-import org.json.JSONObject;
-import org.junit.Before;
+import forecast.ForecastData;
+import forecast.ForecastWriting;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.Writer;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
 
 public class MockTest {
 
+    private Forecast forecast;
+    private ForecastData forecastData;
+    private ForecastWriting forecastWriting;
 
-    private Forecast weatherDataRequesterMockObj;
-    private JSONObject weatherResponse;
-    private JSONObject forecastResponse;
-    private Writer mockedFileWriter;
+    @Test
+    public void forecastDataSetLatitude() {
+        forecastData = mock(ForecastData.class);
 
-
-    @Before
-    public void setup() throws IOException {
-        this.mockedFileWriter = Mockito.mock(Writer.class);
-        this.weatherDataRequesterMockObj = Mockito.mock(Forecast.class);
-        //this.currentWeatherResponse = CurrentWeather.readFromFile("CurrentWeatherForTesting.txt");
-        //Forecast forecast = new Forecast();
-        //this.forecastResponse = forecast.forecastJSONProcessing("ExtremalForecastForTesting.txt");
+        forecastData.setLatitude(12.34);
+        verify(forecastData).setLatitude(12.34);
     }
 
     @Test
-    public void createNewFileTest() throws IOException {
-        this.mockedFileWriter.write(Mockito.anyString());
-        assertTrue(new File("").list().length > 0);
+    public void forecastDataGetLatitudeWithStubbing() {
+        forecastData = mock(ForecastData.class);
+
+        assertEquals(0, forecastData.getLatitude(), 0.0);
+
+        when(forecastData.getLatitude()).thenReturn(12.34);
+        assertEquals(12.34, forecastData.getLatitude(), 0.1);
     }
 
+
+    @Test
+    public void forecastDataSetTemperatures() {
+        forecastData = mock(ForecastData.class);
+
+        forecastData.setTemperatures(0, 1, 1, 2, 2, 3);
+        verify(forecastData).setTemperatures(0, 1, 1, 2, 2, 3);
+    }
+
+
+    @Test
+    public void forecastDataGetTemperatureWithStubbing() {
+        forecastData = mock(ForecastData.class);
+
+        assertEquals(0, forecastData.getDay1max());
+
+        when(forecastData.getDay1max()).thenReturn(1);
+        assertEquals(1, forecastData.getDay1max());
+    }
+
+
+    @Test
+    public void forecastWritingForecastWriting() throws IOException {
+        forecastWriting = mock(ForecastWriting.class);
+
+        forecastWriting.forecastWriting();
+        verify(forecastWriting).forecastWriting();
+    }
+
+    @Test
+    public void forecastWritingSimpleWriting() throws IOException {
+        forecastWriting = mock(ForecastWriting.class);
+
+        forecastWriting.simpleWriting(Mockito.anyString());
+        verify(forecastWriting).simpleWriting(Mockito.anyString());
+    }
 
 }

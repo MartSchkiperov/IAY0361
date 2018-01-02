@@ -15,6 +15,9 @@ public class ForecastData {
         this.city = city;
     }
 
+    public String getCity() {
+        return city;
+    }
 
     public double getLatitude() {
         return latitude;

@@ -12,14 +12,14 @@ import static org.junit.Assert.assertEquals;
 public class WeatherRequestTest extends WeatherRequest {
 
 
-    WeatherRequest wR = new WeatherRequest();
+    WeatherRequest weatherRequest = new WeatherRequest();
 
 
     @Test
     public void citiesFromFileToCorrectCityList() throws IOException {
         boolean compare = true;
         List<String> cities1 = new ArrayList<>(Arrays.asList("Tallinn", "Moscow", "Riga", "Helsinki"));
-        List cities2 = wR.allCitiesFromFile();
+        List cities2 = weatherRequest.allCitiesFromFile();
         for (int i = 0; i < cities2.size(); i++) {
             if (!cities1.get(i).equals(cities2.get(i)))
                 compare = false;
@@ -30,14 +30,14 @@ public class WeatherRequestTest extends WeatherRequest {
 
     @Test
     public void cityListCorrectSize() throws IOException {
-        List cities = wR.allCitiesFromFile();
+        List cities = weatherRequest.allCitiesFromFile();
         assertEquals(4, cities.size());
     }
 
 
     @Test
     public void oneCityIsTallinn() throws IOException {
-        assertEquals("Tallinn", wR.oneCityFromFile());
+        assertEquals("Tallinn", weatherRequest.oneCityFromFile());
     }
 
 

@@ -10,7 +10,8 @@ import static org.junit.Assert.assertTrue;
  */
 public class CurrentWeatherTest {
 
-    CurrentWeather w = new CurrentWeather("Tallinn", "testing");
+    String city = "Tallinn";
+    CurrentWeather currentWeather = new CurrentWeather(city, "testing");
 
     public CurrentWeatherTest() throws Exception {
     }
@@ -18,18 +19,18 @@ public class CurrentWeatherTest {
 
     @Test
     public void urlIsCorrect() {
-        assertEquals("http://api.openweathermap.org/data/2.5/weather?q=tallinn&appid=ed2d0441550bad29e87a82b03e7ff532",
-                w.currentWeatherReportUrlStart + "tallinn" + "&appid=" + w.apiCode);
+        assertEquals("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=ed2d0441550bad29e87a82b03e7ff532",
+                currentWeather.currentWeatherReportUrlStart + city + "&appid=" + currentWeather.apiCode);
     }
 
     @Test
     public void currentTemperatureIsNotTooCold() throws Exception {
-        assertTrue(w.currentWeatherTemperature() > -50);
+        assertTrue(currentWeather.currentWeatherTemperature() > -50);
     }
 
     @Test
     public void currentTemperatureIsNotTooHot() throws Exception {
-        assertTrue(w.currentWeatherTemperature() < 50);
+        assertTrue(currentWeather.currentWeatherTemperature() < 50);
     }
 
 
